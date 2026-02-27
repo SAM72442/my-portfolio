@@ -41,6 +41,9 @@ const Contact = () => {
               try {
                 const response = await fetch("/api/emails", {
                   method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
                   body: JSON.stringify({
                     firstName: form.firstName.value,
                     lastName: form.lastName.value,
