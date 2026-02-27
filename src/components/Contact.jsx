@@ -41,9 +41,6 @@ const Contact = () => {
               try {
                 const response = await fetch("/api/emails", {
                   method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
                   body: JSON.stringify({
                     firstName: form.firstName.value,
                     lastName: form.lastName.value,
@@ -52,6 +49,7 @@ const Contact = () => {
                     message: form.message.value,
                   }),
                 });
+                console.log("message being send: " + response);
 
                 if (!response.ok) throw new Error("Server error");
 

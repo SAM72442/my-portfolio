@@ -47,8 +47,6 @@ export async function POST(req) {
 	html: htmlContent,
 	});
 
-
-	console.log("message being send")
 	return NextResponse.json(
 	{
 		success: true,
