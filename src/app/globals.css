@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-opensans: var(--font-open-sans);
+  --font-atomicage: var(--font-atomic);
+}
+
+@layer utilities {
+  .scrollbar-thumb-only::-webkit-scrollbar-thumb {
+    @apply bg-transparent rounded-full;
+  }
+  .scrollbar-thumb-only:hover::-webkit-scrollbar-thumb {
+    @apply bg-gray-300; /* Becomes visible on hover */
+  }
+
+  /* Firefox */
+  .scrollbar-thumb-only {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .scrollbar-thumb-only:hover {
+    scrollbar-color: theme("colors.gray.300") transparent;
+  }
+}
+
+/*body{
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	overflow:hidden;
+}*/
+
+.fade-edges {
+  -webkit-mask-image:
+    linear-gradient(to top, transparent, black 20%, black 5%, transparent),
+    linear-gradient(to bottom, transparent, black 80%, black 95%, transparent),
+    linear-gradient(to left, transparent, black 80%, black 95%, transparent),
+    linear-gradient(to right, transparent, black 80%, black 95%, transparent);
+  mask-image:
+    linear-gradient(to top, transparent, black 5%, black 95%, transparent),
+    /*linear-gradient(to bottom, transparent, black 80%, black 95%, transparent),
+              linear-gradient(to left, transparent, black 80%, black 95%, transparent),
+              */
+    linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+}
+
+/*.dark {
+	color-scheme: dark;
+}*/
