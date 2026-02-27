@@ -59,6 +59,7 @@ const Contact = () => {
                 }, 3000);
               } catch (error) {
                 alert("Submission failed. Please try again later.");
+                console.log(error);
                 setIsSubmitted(false);
               }
             }}
