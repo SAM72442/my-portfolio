@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 import Email from "@/emails/Email";
 import nodemailer from "nodemailer";
 import { render } from "@react-email/render";
