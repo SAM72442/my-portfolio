@@ -49,7 +49,6 @@ const Contact = () => {
                     message: form.message.value,
                   }),
                 });
-                console.log("message being send: " + response);
 
                 if (!response.ok) throw new Error("Server error");
 
@@ -60,7 +59,6 @@ const Contact = () => {
                 }, 3000);
               } catch (error) {
                 alert("Submission failed. Please try again later.");
-                console.log(error);
                 setIsSubmitted(false);
               }
             }}
