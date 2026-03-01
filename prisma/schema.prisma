@@ -12,5 +12,7 @@ model Project {
   desc      String
   image     String
   tags      String[]
+  repoUrl   String   @default("")
+  demoUrl   String   @default("")
   createdAt DateTime @default(now())
 }

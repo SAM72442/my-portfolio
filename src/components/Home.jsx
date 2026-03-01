@@ -1,3 +1,5 @@
+"use client";
+
 import myFace from "../assets/me-edited-cropped-removebg.png";
 import linkedIn from "../assets/linkedin.svg";
 import github from "../assets/github.svg";

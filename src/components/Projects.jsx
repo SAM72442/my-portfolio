@@ -1,46 +1,15 @@
 import { ExternalLink } from "lucide-react";
 import github from "../assets/github.svg";
-import project1 from "../assets/poster-painting1.png";
+import { prisma } from "lib/prisma";
 
-const Projects = () => {
-  const projects = [
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "Javascript", "HTML", "Tailwindcss"],
+const Projects = async () => {
+  const projects = await prisma.project.findMany({
+    take: 3,
+    orderBy: {
+      createdAt: "desc",
     },
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "javascript", "html", "css"],
-    },
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "javascript", "html", "css"],
-    },
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "javascript", "html", "css"],
-    },
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "javascript", "html", "css"],
-    },
-    {
-      title: "A Professional Artist Website",
-      desc: "Artist website made for dealing with art business orders and portfolio",
-      image: project1.src,
-      tags: ["React", "framer-motion", "javascript", "html", "css"],
-    },
-  ];
+  });
+
   return (
     <section id="projects" className="w-full">
       <div className="container mx-auto px-4">
@@ -51,9 +20,9 @@ const Projects = () => {
           A Showcase of my latest Works
         </p>
         <div className="grid grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
-              key={index}
+              key={project.id}
               className="group rounded-xl outline duration-200 hover:outline-2 outline-gray-300 hover:outline-orange-500 transition-all bg-linear-to-r from-white to-[#f59e0b] border-[#e5e7eb]"
             >
               <div className="h-36 overflow-hidden rounded-t-xl">
@@ -80,14 +49,14 @@ const Projects = () => {
                 </div>
                 <div className="flex gap-2">
                   <a
-                    href="#"
+                    href={project.repoUrl}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-[#f3f4f6] text-[#4b5563] text-sm rounded-lg hover:opacity-90 transition-colors"
                   >
                     <img src={github.src} className="h-5" />
                     <span>Code</span>
                   </a>
                   <a
-                    href="#"
+                    href={project.demoUrl}
                     className="flex-1 flex items-center justify-center gap-1.5 px-3 py-2 bg-gray-800 hover:bg-linear-to-r from-[#f97316] to-[#e2d8c5] text-white hover:text-[#4b5563] text-sm rounded-lg hover:shadow-lg hover:shadow-orange-500 transition-all duration-200"
                   >
                     <ExternalLink className="h-5" />
