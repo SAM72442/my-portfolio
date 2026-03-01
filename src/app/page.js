@@ -1,8 +1,5 @@
-'use client';
+export const dynamic = "force-dynamic";
 
-import { useEffect, useState } from "react";
-//import Aos from "aos";
-import { motion } from "framer-motion";
 import Navbar2 from "../components/Navbar2";
 import Home from "../components/Home";
 import About from "../components/About";
@@ -17,12 +14,7 @@ export default function Page () {
 
   return (
     <div className= "flex h-screen md:px-[4vw] 2xl:px-[10vw] md:py-15 bg-linear-170 from-gray-900 via-[#381264] to-violet-500">
-      <motion.div
-        initial={{ marginLeft: 0, marginRight: 0, opacity: 0 }}
-        animate={{ marginLeft: 20, marginRight: 20, opacity: 1 }}
-        transition={{ ease: "easeOut", duration: 0.5, delay: 0.7 }}
-        className="rounded-2xl bg-white flex items-center w-full m-5 p-5 flex-col lg:flex-row gap-5"
-      >
+      <div className="rounded-2xl bg-white flex items-center w-full m-5 p-5 flex-col lg:flex-row gap-5">
         <Navbar2 />
         <span className="hidden lg:inline bg-gray-100 w-1 h-9/10 rounded-full"></span>
         <div className="w-full lg:w-2/3 h-full p-4 flex flex-col items-center gap-30 overflow-x-hidden scrollbar-thumb-only scroll-smooth">
@@ -34,7 +26,7 @@ export default function Page () {
           <Footer />
         </div>
         {/*<Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />*/}
-      </motion.div>
+      </div>
     </div>
   );
 };
